@@ -72,8 +72,8 @@ type globalVarsStruct struct {
 
 var globalVars = sync.OnceValue(func() *globalVarsStruct {
 	return &globalVarsStruct{
-		validRepoNamePattern:     regexp.MustCompile(`^[-.\w]+$`),
-		invalidRepoNamePattern:   regexp.MustCompile(`[.]{2,}`),
+		validRepoNamePattern:     regexp.MustCompile(`^.+$`),
+		invalidRepoNamePattern:   regexp.MustCompile(`$0`), // Impossible pattern
 		reservedRepoNames:        []string{".", "..", "-"},
 		reservedRepoNamePatterns: []string{"*.wiki", "*.git", "*.rss", "*.atom"},
 	}

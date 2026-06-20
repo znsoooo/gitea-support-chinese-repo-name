@@ -23,7 +23,7 @@ import (
 // CreateRepoForm form for creating repository
 type CreateRepoForm struct {
 	UID           int64  `binding:"Required"`
-	RepoName      string `binding:"Required;AlphaDashDot;MaxSize(100)"`
+	RepoName      string `binding:"Required;MaxSize(100)"`
 	Private       bool
 	Description   string `binding:"MaxSize(2048)"`
 	DefaultBranch string `binding:"GitRefName;MaxSize(100)"`
@@ -65,7 +65,7 @@ type MigrateRepoForm struct {
 	// required: true
 	UID int64 `json:"uid" binding:"Required"`
 	// required: true
-	RepoName       string `json:"repo_name" binding:"Required;AlphaDashDot;MaxSize(100)"`
+	RepoName       string `json:"repo_name" binding:"Required;MaxSize(100)"`
 	Mirror         bool   `json:"mirror"`
 	LFS            bool   `json:"lfs"`
 	LFSEndpoint    string `json:"lfs_endpoint"`
@@ -91,7 +91,7 @@ func (f *MigrateRepoForm) Validate(req *http.Request, errs binding.Errors) bindi
 
 // RepoSettingForm form for changing repository settings
 type RepoSettingForm struct {
-	RepoName               string `binding:"Required;AlphaDashDot;MaxSize(100)"`
+	RepoName               string `binding:"Required;MaxSize(100)"`
 	Description            string `binding:"MaxSize(2048)"`
 	Website                string `binding:"ValidUrl;MaxSize(1024)"`
 	Interval               string

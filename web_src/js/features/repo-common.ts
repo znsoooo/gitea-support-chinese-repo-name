@@ -162,17 +162,14 @@ export async function updateIssuesMeta(url: string, action: string, issue_ids: s
 }
 
 export function sanitizeRepoName(name: string): string {
-  name = name.trim().replace(/[^-.\w]/g, '-');
+  name = name.trim();
   for (let lastName = ''; lastName !== name;) {
     lastName = name;
-    name = name.replace(/\.+$/g, '');
-    name = name.replace(/\.{2,}/g, '.');
     for (const ext of ['.git', '.wiki', '.rss', '.atom']) {
       if (name.endsWith(ext)) {
         name = name.substring(0, name.length - ext.length);
       }
     }
   }
-  if (['.', '..', '-'].includes(name)) name = '';
   return name;
 }
