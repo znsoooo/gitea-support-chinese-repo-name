@@ -37,8 +37,8 @@ func isContainerPath(req *http.Request) bool {
 }
 
 var (
-	gitRawOrAttachPathRe = regexp.MustCompile(`^/[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+/(?:(?:git-(?:(?:upload)|(?:receive))-pack$)|(?:info/refs$)|(?:HEAD$)|(?:objects/)|(?:raw/)|(?:releases/download/)|(?:attachments/))`)
-	lfsPathRe            = regexp.MustCompile(`^/[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+/info/lfs/`)
+	gitRawOrAttachPathRe = regexp.MustCompile(`^/[^/]+/[^/]+/(?:(?:git-(?:(?:upload)|(?:receive))-pack$)|(?:info/refs$)|(?:HEAD$)|(?:objects/)|(?:raw/)|(?:releases/download/)|(?:attachments/))`)
+	lfsPathRe            = regexp.MustCompile(`^/[^/]+/[^/]+/info/lfs/`)
 )
 
 func isGitRawOrAttachPath(req *http.Request) bool {

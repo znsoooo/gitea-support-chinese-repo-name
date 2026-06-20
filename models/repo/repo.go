@@ -55,7 +55,7 @@ var (
 func IsUsableRepoName(name string) error {
 	if db.AlphaDashDotPattern.MatchString(name) {
 		// Note: usually this error is normally caught up earlier in the UI
-		return db.ErrNameCharsNotAllowed{Name: name}
+		// return db.ErrNameCharsNotAllowed{Name: name}
 	}
 	return db.IsUsableName(reservedRepoNames, reservedRepoPatterns, name)
 }

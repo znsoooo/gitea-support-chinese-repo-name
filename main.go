@@ -9,7 +9,6 @@ import (
 	"fmt"
 	"os"
 	"runtime"
-	"strings"
 	"time"
 
 	"code.gitea.io/gitea/cmd"
@@ -200,9 +199,9 @@ func formatBuiltWith() string {
 	if len(MakeVersion) > 0 {
 		version = MakeVersion + ", " + runtime.Version()
 	}
-	if len(Tags) == 0 {
-		return " built with " + version
-	}
-
-	return " built with " + version + " : " + strings.ReplaceAll(Tags, " ", ", ")
+	return (
+		" built with " + version +
+		"\nForked from Gitea project. Support Chinese or Unicode names for users," +
+		"\nrepositories, organizations, and teams." +
+		"\nDetail see: https://github.com/znsoooo/gitea-support-chinese-repo-name\n")
 }
