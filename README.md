@@ -17,7 +17,7 @@
 
 支持Win7的最后版本: https://github.com/znsoooo/gitea-support-chinese-repo-name/releases/tag/win7-support-unicode
 
-最新版本: https://github.com/znsoooo/gitea-support-chinese-repo-name/releases
+最新版本: https://github.com/znsoooo/gitea-support-chinese-repo-name/releases/latest
 
 没有支持Linux的二进制发布版，如果需要请自行编译代码。或者有人愿意提交贡献我可以添加到下载链接中。
 
