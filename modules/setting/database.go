@@ -8,7 +8,6 @@ import (
 	"fmt"
 	"net/url"
 	"os"
-	"path"
 	"path/filepath"
 	"strings"
 	"time"
@@ -122,7 +121,7 @@ func DBConnStr() (string, error) {
 		if !EnableSQLite3 {
 			return "", errors.New("this Gitea binary was not built with SQLite3 support")
 		}
-		if err := os.MkdirAll(path.Dir(Database.Path), os.ModePerm); err != nil {
+		if err := os.MkdirAll(filepath.Dir(Database.Path), os.ModePerm); err != nil {
 			return "", fmt.Errorf("Failed to create directories: %w", err)
 		}
 		journalMode := ""
